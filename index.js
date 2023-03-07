@@ -12,9 +12,9 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
 
-const users = require("./routes/users");
+const users = require("./routes/routeUsers");
 
-app.use("/api", users);
+app.use("/api/v1", users);
 
 const port = process.env.PORT || 3001;
 
