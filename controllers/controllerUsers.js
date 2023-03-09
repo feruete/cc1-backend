@@ -50,7 +50,21 @@ exports.showAll = (req, res) => {
 };
 
 //ELIMINAR USUARIO
-exports.deleteUser = (req, res) => {};
+exports.deleteUser = (req, res) => {
+  const { id } = req.params;
+  knex("users")
+    .where("user_id", id)
+    .del()
+    .then((response) => {
+      res.json({
+        success: true,
+        mensaje: "El usuario se ha eliminado correctamente",
+      });
+    })
+    .catch((error) => {
+      res.status(400).json({ error: error.message });
+    });
+};
 
 //LOGIN DE USUARIO
 exports.loginUser = (req, res) => {
