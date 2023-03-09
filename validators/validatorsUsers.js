@@ -24,6 +24,8 @@ exports.userValidator = [
     .not()
     .isEmpty()
     .withMessage("Se requiere contraseña")
+    .isString()
+    .withMessage("La contraseña debe contener letras")
     .isLength({ min: 8, max: 120 })
     .withMessage(
       "La password debe tener un mínimo 8 caracteres y un máximo de 120"
