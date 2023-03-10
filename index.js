@@ -13,8 +13,10 @@ app.use(cookieParser());
 app.use(cors());
 
 const users = require("./routes/routeUsers");
+const plants = require("./routes/routePlants");
 
-app.use("/api/v1", users);
+app.use("/api/v1/users", users);
+app.use("/api/v1/plants", plants);
 
 const port = process.env.PORT || 3001;
 
